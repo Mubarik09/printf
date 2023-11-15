@@ -30,7 +30,40 @@ str++;
 }
 return (length);
 }
- 
 
-	
+/**
+ * printNumber - functions convert int to char and print
+ * @args: variadic argument
+ * Return: length of number on success
+ */
+int printNumber(va_list args)
+{
+int length = 0;
+int num = va_arg(args, int);
+int divisor = 1;
+if (num < 0)
+{
+_putchar('-');
+num = -num;
+}
+while (num / divisor > 10)
+{
+divisor *= 10;
+}
+while (divisor > 0)
+{
+_putchar(num / divisor + '0');
+length++;
+num %= divisor;
+divisor /= 10;
+}
+return (length);
+}
+
+
+
+
+
+
+
 

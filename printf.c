@@ -29,6 +29,31 @@ _putchar('%');
 format++;
 count++;
 }
+else if (*format == '%' && (*(format + 1) == 'd' ||*(format + 1) == 'i'))
+{
+count += printNumber(args);
+format++;
+}
+else if (*format == '%' && *(format + 1) == 'b')
+{
+count += conversion(args, 2);
+format++;
+}
+else if (*format == '%' && *(format + 1) == 'o')
+{
+count += conversion(args, 8);
+format++;
+}
+else if (*format == '%' && *(format + 1) == 'x')
+{
+count += conversion(args, 16, 'x');
+format++;
+}
+else if (*format == '%' && *(format + 1) == 'X')
+{
+count += conversion(args, 16, 'X');
+format++;
+}
 else
 {
 _putchar(*format);
@@ -39,3 +64,4 @@ format++;
 va_end(args);
 return (count);
 }
+
